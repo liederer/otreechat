@@ -2,8 +2,11 @@ oTree Chat (beta)
 =================
 
 Chat rooms for oTree so that participants can communicate with each other.
+`Live demo here <http://otree-demo.herokuapp.com/demo/prisoner_chat/>`__
+(open the start links and click through to the "Your Choice" page).
 
 This is an early beta version and subject to changes/improvements!
+
 
 Installation
 ------------
@@ -196,10 +199,6 @@ The chat logs download link will appear on oTree's regular data export page.
 
 Upgrading
 ---------
-
-During Februrary/March 2017, this package will be upgraded frequently
-(e.g. to fix performance issues),
-so you should upgrade frequently as well:
 
 .. code-block::
 
