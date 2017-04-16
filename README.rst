@@ -169,26 +169,26 @@ For example, this code enables 1:1 chat with every other player in the group.
         def chat_nickname(self):
             return 'Player {}'.format(self.id_in_group)
 
-        def chats(self):
-            channels = []
+        def chat_configs(self):
+            configs = []
             for other in self.get_others_in_group():
                 if other.id_in_group < self.id_in_group:
                     lower_id, higher_id = other.id_in_group, self.id_in_group
                 else:
                     lower_id, higher_id = self.id_in_group, other.id_in_group
-                channels.append({
+                configs.append({
                     # make a name for the channel that is the same for all
                     # channel members. That's why we order it (lower, higher)
                     'channel': '{}-{}-{}'.format(self.group.id, lower_id, higher_id),
                     'label': 'Chat with {}'.format(other.chat_nickname())
                 })
-            return channels
+            return configs
 
 .. code-block:: html+django
 
-    {% for chat in player.chats %}
-        <h4>{{ chat.label }}</h4>
-        {% chat nickname=player.chat_nickname channel=chat.channel %}
+    {% for config in player.chat_configs %}
+        <h4>{{ config.label }}</h4>
+        {% chat nickname=player.chat_nickname channel=config.channel %}
     {% endfor %}
 
 
