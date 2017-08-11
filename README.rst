@@ -5,7 +5,7 @@ Chat rooms for oTree so that participants can communicate with each other.
 `Live demo here <http://otree-demo.herokuapp.com/demo/prisoner_chat/>`__
 (open the start links and click through to the "Your Choice" page).
 
-This is an early beta version and subject to changes/improvements!
+This is a beta version and subject to changes/improvements!
 
 
 Installation
@@ -128,6 +128,11 @@ If you want everyone in the session to freely chat with each other, just do:
 Styling
 ~~~~~~~
 
+.. note::
+
+    The CSS classes for the elements changed in August 2017.
+    They were renamed to a more consistent BEM style.
+
 To customize the style, just include some CSS after the ``{% chat %}`` element,
 e.g.:
 
@@ -136,10 +141,10 @@ e.g.:
     {% chat %}
 
     <style>
-        .otree-chat .messages {
+        .otree-chat__messages {
             height: 400px;
         }
-        .otree-chat .nickname {
+        .otree-chat__nickname {
             color: #0000FF;
             font-weight: bold;
         }

@@ -13,10 +13,6 @@ def get_chat_group(channel):
 def msg_consumer(message):
     content = message.content
 
-    # For now, don't create a model because we
-    # don't yet have a way to export this table.
-    # currently oTree admin is not extensible.
-
     channel = content['channel']
     channels_group = get_chat_group(channel)
 

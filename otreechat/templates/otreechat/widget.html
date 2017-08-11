@@ -1,7 +1,7 @@
-<div class='otree-chat' id='otree-chat-{{ channel }}'>
-    <div class='messages'></div>
-    <input size="40">
-    <button type="button">Send</button>
+<div class='otree-chat' id='_js-otree-chat-{{ channel }}'>
+    <div class='otree-chat__messages'></div>
+    <input type="text" class="otree-chat__input" size="40">
+    <button type="button" class="otree-chat__btn-send">Send</button>
 </div>
 
 
@@ -11,13 +11,14 @@
     padding: 5px;
     margin: 30px 0 0 0;
 }
-.otree-chat .messages {
+.otree-chat__messages {
     height: 200px;
     overflow: auto;
     background: #eee;
     margin: 2px 0 5px 0;
 }
-.otree-chat .nickname {
+
+.otree-chat__nickname {
     display: inline-block;
     color: #C07A36;
     width: 150px;
@@ -52,7 +53,7 @@ $(function () {
     var participantCode = varsFromDjango.participant_code;
     var participantID = varsFromDjango.participant_id;
 
-    var $chatWidget = $('#otree-chat-' + channel);
+    var $chatWidget = $('#_js-otree-chat-' + channel);
 
     var $messageInput = $chatWidget.find('input');
 
@@ -60,7 +61,7 @@ $(function () {
     var ws_path = ws_scheme + '://' + window.location.host + "/otreechat/" + channel + "/";
     console.log("Connecting to " + ws_path);
     var socket = new ReconnectingWebSocket(ws_path);
-    var $msgdiv = $chatWidget.find('.messages');
+    var $msgdiv = $chatWidget.find('.otree-chat__messages');
 
     // Handle incoming messages
     socket.onmessage = function (message) {
@@ -79,13 +80,13 @@ $(function () {
             others who read it.
             {% endcomment %}
             // need to use ID instead of code, for security
-            if (chatMessage.participant_id == participantID) {
+            if (chatMessage.participant_id === participantID) {
                 nickname += ' (Me)';
             }
 
-            messagesHTML += "<div class='message'>" +
-                        "<span class='nickname'>" + escapeHtml(nickname) + "</span>" +
-                        "<span class='body'>" + escapeHtml(chatMessage.body) + "</span>" +
+            messagesHTML += "<div class='otree-chat__msg'>" +
+                        "<span class='otree-chat__nickname'>" + escapeHtml(nickname) + "</span>" +
+                        "<span class='otree-chat__body'>" + escapeHtml(chatMessage.body) + "</span>" +
                         "</div>";
 
         }
