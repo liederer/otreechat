@@ -1,11 +1,6 @@
 oTree Chat (beta)
 =================
 
-.. note::
-    This add-on has been merged into otree-core and is no longer needed.
-    See `here <http://otree.readthedocs.io/en/latest/multiplayer/chat.html>`__.
-
-
 Chat rooms for oTree so that participants can communicate with each other.
 `Live demo here <http://otree-demo.herokuapp.com/demo/prisoner_chat/>`__
 (open the start links and click through to the "Your Choice" page).
@@ -15,12 +10,6 @@ This is a beta version and subject to changes/improvements!
 
 Installation
 ------------
-
-.. note::
-
-    If you are getting an error like "django.db.migrations.graph.NodeNotFoundError:
-    Migration otreechat.0001_initial dependencies reference nonexistent parent node",
-    upgrade otreechat as described in this section.
 
 (Requires otree-core >= 1.2)
 
@@ -36,7 +25,6 @@ Then run ``otree resetdb``.
 
 For installation on your server, your ``requirements_base.txt`` should
 contain ``otreechat`` as well as ``otree-core>=1.2.0`` (or higher, etc).
-
 
 Usage
 -----
